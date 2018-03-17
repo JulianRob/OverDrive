@@ -9,4 +9,14 @@ public class Button : MonoBehaviour {
 	{
 		SceneManager.LoadScene (index);
 	}
+
+	public void Restart(string index)
+	{
+		SceneManager.LoadScene (index);
+	}
+
+	public void MainMenu(string index)
+	{
+		SceneManager.LoadScene (index);
+	}
 }
