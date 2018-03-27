@@ -19,9 +19,4 @@ public class Button : MonoBehaviour {
 	{
 		SceneManager.LoadScene (index);
 	}
-
-	public void Adjustment()
-	{
-		GameObject.Find ("Player").GetComponent<Player> ().adjustmentNumber += 0.5f;
-	}
 }

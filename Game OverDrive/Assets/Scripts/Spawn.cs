@@ -20,7 +20,7 @@ public class Spawn : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		/*
+		
 		if (start == true) 
 		{
 			if (count == 60) 
@@ -36,6 +36,5 @@ public class Spawn : MonoBehaviour {
 			count += 1;
 			collect += 1;
 		}
-		*/
 	}
 }

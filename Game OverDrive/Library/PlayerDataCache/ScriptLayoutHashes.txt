@@ -3,7 +3,7 @@ SceneListBegin?
 Assets/Scenes/Main.unity
 Assets/Scenes/Scene1.unity
 SceneListEnd?
-0e9403c803b1d56c6834970075b43c72 Assembly-CSharp.dll:.Player
+98bf33b84e4b7e2e9a72f2b57ed0500f Assembly-CSharp.dll:.Player
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 dbc29a6f2739d277c10da432d73adb6d UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset

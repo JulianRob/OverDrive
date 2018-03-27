@@ -8,19 +8,12 @@ public class Player : MonoBehaviour {
 	public GameObject restart;
 	public GameObject quit;
 	public GameObject score;
-	public Slider slider;
-	public float NumberScale = 10;
-	public Text TimeFrame;
 	public Text scoreText;
-	public Text adjustmentText;
 	public Text begin;
 	bool start = false;
 	int scoreNumber;
 	Vector3 mouse;
 	Vector3 recordPosition;
-	//to calculate velocity divide by the time of 1 frame. 
-
-	//higher the number the latest it is.
 
 	Vector3 position1 = new Vector3 (0, 0,10);
 	Vector3 position2 = new Vector3 (0, 0,10);
@@ -38,20 +31,11 @@ public class Player : MonoBehaviour {
 
 	float magnitude;
 	float slideScale;
-	float timeManipulation;
 	float timeChange;
-	float adjustment;
-	public float adjustmentNumber;
-
-	float average;
-	int countMagnitude;
-
-	int counter = 0;
 
 	void Awake()
 	{
 		Application.targetFrameRate = 60; //60
-		//QualitySettings.vSyncCount = 0;
 	}
 
 	void Start () 
@@ -59,10 +43,6 @@ public class Player : MonoBehaviour {
 		scoreNumber = 0;
 		score.SetActive (false);
 		slideScale = 300; //400
-		timeManipulation = 1; //1
-		average = 0;
-		countMagnitude = 1;
-		adjustmentNumber = 1;
 	}
 
 	void Death()
@@ -75,14 +55,6 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		//if(Application.targetFrameRate != 60)
-		//	Application.targetFrameRate = 60;
-
-		//counter += 1;
-
-		NumberScale = slider.value;
-		TimeFrame.text = "" + slider.value;
-
 		if (start == false && Input.GetMouseButton(0)) //&& counter >= 200
 		{
 			start = true;
@@ -95,16 +67,13 @@ public class Player : MonoBehaviour {
 
 		if (start == true) 
 		{
-			//timeManipulation = slider.value;
-			timeChange = Time.fixedDeltaTime*timeManipulation; //Time.FixedDeltaTime
+			timeChange = Time.fixedDeltaTime;
 
 			if (Input.GetMouseButton (0)) 
 			{
 				mouse = Input.mousePosition;
 				mouse.z = 10;
 				transform.position = Camera.main.ScreenToWorldPoint(mouse); //finalposition + newposition)
-
-				/////
 
 				if (recordPosition != mouse)
 				{
@@ -126,83 +95,20 @@ public class Player : MonoBehaviour {
 
 						magnitude = Mathf.Sqrt(Mathf.Pow(velocity3.x,2)+Mathf.Pow(velocity3.y,2));
 
-						//adjustmentText.text = "" + adjustmentNumber;
-
-						/*
-						//adjustment = Mathf.Exp (.0001f * magnitude);
-
-						//if (adjustment >= 10) 
-						//{
-						//	adjustment = 10;
-						//}
-
-						if (magnitude >= 2000)
-						{
-							adjustment = 1;
-							//magnitude/375
-							//Mathf.Exp (magnitude/ 932);
-							// magnitude/300
-						} 
-						else 
-						{
-							adjustment = 1;
-					    }
-						*/
-
-						//adjustment = 1;
-
-						//adjustment = (2*Mathf.Exp(-0.00001f*Mathf.Pow(magnitude-2000,2))) + 1;
-						//Debug.Log (adjustment);
-						//average += magnitude;
-						//TimeFrame.text = "" + average/countMagnitude;
-						//TimeFrame.text = "" + magnitude;
-						//countMagnitude += 1;
-
-						//transform.position = Camera.main.ScreenToWorldPoint (mouse + adjustment*(((timeChange * velocity3) + (0.5f * acceleration2 * Mathf.Pow (timeChange, 2f)) + ((1f / 3f) * Mathf.Pow (timeChange, 3f) * jerk1))));
-
-
-
-						//Test this after you have ran, studied, and completed your homework. 130 is the latest one :) 
 						if (magnitude <= 300) {
 							transform.position = Camera.main.ScreenToWorldPoint (mouse + (((timeChange * velocity3) + (0.5f * acceleration2 * Mathf.Pow (timeChange, 2f)) + ((1f / 3f) * Mathf.Pow (timeChange, 3f) * jerk1))));
 						} else {
-							transform.position = Camera.main.ScreenToWorldPoint (mouse + (slideScale/(magnitude/NumberScale))*(((timeChange * velocity3) + (0.5f * acceleration2 * Mathf.Pow (timeChange, 2f)) + ((1f / 3f) * Mathf.Pow (timeChange, 3f) * jerk1))));
+							transform.position = Camera.main.ScreenToWorldPoint (mouse + (slideScale/(magnitude/3.5f))*(((timeChange * velocity3) + (0.5f * acceleration2 * Mathf.Pow (timeChange, 2f)) + ((1f / 3f) * Mathf.Pow (timeChange, 3f) * jerk1))));
 						}
-					
-						//THIS NEARLY HAS NO LATENCY BUT JITTERS TOO MUCH.
-						/*
-						if (magnitude <= 1000) {
-							transform.position = Camera.main.ScreenToWorldPoint (mouse + 3*(((timeChange * velocity3) + (0.5f * acceleration2 * Mathf.Pow (timeChange, 2f)) + ((1f / 3f) * Mathf.Pow (timeChange, 3f) * jerk1))));
-						} else {
-							transform.position = Camera.main.ScreenToWorldPoint (mouse + (slideScale/(magnitude/10))*(((timeChange * velocity3) + (0.5f * acceleration2 * Mathf.Pow (timeChange, 2f)) + ((1f / 3f) * Mathf.Pow (timeChange, 3f) * jerk1))));
-						}
-						*/
-
-						//THIS LAGS BEHIND THE FINGER BUT DOES NOT JITTER
-						/*
-						slideScale = 400;
-				
-						if (magnitude >= 400)
-						{
-							transform.position = Camera.main.ScreenToWorldPoint (mouse + ((slideScale / magnitude) * ((timeChange * velocity3) + (0.5f * acceleration2 * Mathf.Pow (timeChange, 2f)) + ((1f / 3f) * Mathf.Pow (timeChange, 3f) * jerk1))));
-						} 
-						else 
-						{
-							transform.position = Camera.main.ScreenToWorldPoint (mouse + (((timeChange * velocity3) + (0.5f * acceleration2 * Mathf.Pow (timeChange, 2f)) + ((1f / 3f) * Mathf.Pow (timeChange, 3f) * jerk1))));
-						}
-						*/
-
 					}
 				}
-
-				/////
 
 				scoreText.text = " Score:" + scoreNumber;
 				scoreNumber += 1;
 			} 
 			else 
 			{
-			//	Death ();
+			  Death ();
 			}
 		}
 	}
@@ -214,19 +120,10 @@ public class Player : MonoBehaviour {
 				Death ();
 			}
 
-		if(other.CompareTag("BlueEnemy"))
+		if(other.CompareTag("Collectable"))
 			{
-				
+				Destroy (other.gameObject);
+				scoreNumber += 100;
 			}
 	}
 }
-
-/*
-finalPosition = mouse;
-newPosition = (finalPosition - initialPosition)/1.1f;
-if((Mathf.Abs(newPosition.x) + Mathf.Abs(newPosition.y)) <= 900)
-{
-	Debug.Log (Mathf.Abs(newPosition.x)+Mathf.Abs(newPosition.y));
-	newPosition = newPosition / (1+ Mathf.Rad2Deg*(Mathf.Cos((Mathf.Abs(newPosition.x)+Mathf.Abs(newPosition.y))/5f)));
-}
-*/
