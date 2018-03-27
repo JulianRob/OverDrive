@@ -3,7 +3,7 @@ SceneListBegin?
 Assets/Scenes/Main.unity
 Assets/Scenes/Scene1.unity
 SceneListEnd?
-12d0b1ca7dcb5c1e0fcbc320334f913b Assembly-CSharp.dll:.Player
+0e9403c803b1d56c6834970075b43c72 Assembly-CSharp.dll:.Player
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 dbc29a6f2739d277c10da432d73adb6d UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -118,7 +118,8 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Button
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
-0b2138ab3571805f7a90f1931797579a Assembly-CSharp.dll:.Spawn
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Collectable
+d515c9318673cfc4410f8984ac1b35fb Assembly-CSharp.dll:.Spawn
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
