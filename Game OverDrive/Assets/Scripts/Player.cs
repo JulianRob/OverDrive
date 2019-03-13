@@ -74,7 +74,7 @@ public class Player : MonoBehaviour {
 				mouse = Input.mousePosition;
 				mouse.z = 10;
 				transform.position = Camera.main.ScreenToWorldPoint(mouse); //finalposition + newposition)
-
+				/*
 				if (recordPosition != mouse)
 				{
 					recordPosition = mouse;
@@ -101,8 +101,9 @@ public class Player : MonoBehaviour {
 							transform.position = Camera.main.ScreenToWorldPoint (mouse + (slideScale/(magnitude/3.5f))*(((timeChange * velocity3) + (0.5f * acceleration2 * Mathf.Pow (timeChange, 2f)) + ((1f / 3f) * Mathf.Pow (timeChange, 3f) * jerk1))));
 						}
 					}
-				}
 
+				}
+				*/
 				scoreText.text = " Score:" + scoreNumber;
 				scoreNumber += 1;
 			} 
